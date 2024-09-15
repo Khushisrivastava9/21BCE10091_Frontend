@@ -25,9 +25,7 @@ import ImgUna from '../images/ImgUna.png';
 
 const TrademarkList = ({ search }) => {
   const dispatch = useDispatch();
-
-  // State to toggle between list and grid view
-  const [viewType, setViewType] = useState("list"); // 'list' or 'grid'
+  const [viewType, setViewType] = useState("list"); 
 
   useEffect(() => {
     dispatch(fetchTrademarks());
@@ -36,7 +34,6 @@ const TrademarkList = ({ search }) => {
   const trademarksState = useSelector((state) => state.trademarks);
   const { data, loading, error } = trademarksState;
 
-  // Filter trademarks based on the search term
   const filteredTrademarks = data?.filter((trademark) =>
     trademark._source.mark_identification.toLowerCase().includes(search.toLowerCase())
   );
@@ -83,8 +80,8 @@ const TrademarkList = ({ search }) => {
                 {/* Mark Column */}
                 <Td>
                   <Box
-                    boxSize="4rem" // Smaller box size
-                    bg="white" // White background
+                    boxSize="4rem" 
+                    bg="white" 
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -95,7 +92,7 @@ const TrademarkList = ({ search }) => {
                     <Image
                       src={trademark.logo}
                       alt="Trademark Logo"
-                      boxSize="3rem" // Smaller image size
+                      boxSize="3rem" 
                       fallbackSrc={ImgUna}
                     />
                   </Box>
@@ -249,8 +246,8 @@ const TrademarkList = ({ search }) => {
             <GridItem key={trademark._id} borderWidth="1px" p="4" borderRadius="md">
               {/* Trademark Item in Grid */}
               <Box
-                boxSize="12rem" // Smaller box size
-                bg="white" // White background
+                boxSize="12rem" 
+                bg="white" 
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -262,7 +259,7 @@ const TrademarkList = ({ search }) => {
                 <Image
                   src={trademark.logo}
                   alt="Trademark Logo"
-                  boxSize="3rem" // Smaller image size
+                  boxSize="3rem" 
                   fallbackSrc={ImgUna}
                 />
               </Box>
